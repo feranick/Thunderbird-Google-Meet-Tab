@@ -2,28 +2,30 @@
   "manifest_version": 2,
   "name": "Google Meet Tab",
   "description": "__MSG_extensionDescription__",
-  "version": "0.1.7",
+  "version": "0.3",
   "author": "Nicola Ferralis",
   "homepage_url": "https://github.com/feranick/Thunderbird-Google-Meet-Tab/",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "feranick.google-meet-tab@addons.thunderbird.net",
-      "strict_min_version": "78.0"
+      "strict_min_version": "106.0"
     }
-  },
+  },  
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "https://*.google.com/*"
+  ],
   "default_locale": "en",
   "icons": {
+    "32": "skin/google_meet_icon.svg",
     "48": "skin/google_meet_icon.svg",
     "96": "skin/google_meet_icon.svg"
   },
-  "browser_action": {
-    "allowed_spaces": [ "mail", "calendar", "chat", "tasks", "addressbook" ],
-    "default_title": "Google Meet",
-    "default_icon": "skin/google_meet_icon.svg"
-  },
   "background": {
     "scripts": [
-      "src/background.js"
+      "redirect.js"
     ]
   }
 }
+
